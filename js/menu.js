@@ -11,11 +11,6 @@ function onStartQuiz() {
     sessionStorage["minutes"] = minutes;
     sessionStorage["seconds"] = seconds;
 
-    if (minutes <= 0) {
-        alert("Введите корректное время");
-        return;
-    }
-
     if (seconds <= 0 && minutes <= 0) {
         alert("Введите корректное время");
         return;
@@ -27,7 +22,7 @@ function onStartQuiz() {
 }
 
 function onContinueQuiz() {
-    window.location.replace("quiz.html");
+    window.location.replace("html/quiz.html");
 }
 
 const continueButton = document.getElementById("continueQuiz");

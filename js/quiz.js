@@ -259,7 +259,7 @@ export class Quiz {
         if (this.questions[this.currentQuestion].type === QuestionType.Select) {
             let selectChoice = document.getElementById("select");
             let current = selectChoice.options[selectChoice.selectedIndex].id;
-            if (current !== "")
+            if (current !== "" && current !== "choice")
                 this.currentAnswers = [current.replace("choice", "") - 0];
             else this.currentAnswers = [];
         }
@@ -277,10 +277,12 @@ export class Quiz {
 
     _renderAnswers(question) {
         if (question.type === QuestionType.Select) {
+            let result = ["Выберите ответ"].concat(question.answers);
             return `
                 <select id="select">
-                    ${question.answers.map((val) => {
-                return `<option id="choice${val.id}">${val.title}</option>`;
+                    ${result.map((val) => {
+                return `<option id="choice${val.id === undefined ? "" : val.id}">
+                        ${val.title === undefined ? "Выберите ответ" : val.title}</option>`;
             })};
                 </select>
                 `;

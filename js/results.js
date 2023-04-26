@@ -27,7 +27,7 @@ function addAnswer(isCorrect, ...args) {
 }
 
 function onReturnToMenu() {
-    window.location.replace("index.html");
+    window.location.replace("../index.html");
 }
 
 function loadResults() {
